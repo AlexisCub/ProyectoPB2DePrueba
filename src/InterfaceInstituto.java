@@ -13,7 +13,7 @@ public class InterfaceInstituto {
         Alumno alumno2 = new Alumno("Juancho", 4);
         Alumno alumno3 = new Alumno("Ana", 3);
         Alumno alumno4 = new Alumno("Luis", 4);
-        Alumno alumno5 = new Alumno("Marta", 5);
+        Alumno alumno5 = new Alumno("Marta", 3); //Valor modificado para probar
 
         // Asignar alumnos a las salas segun el color
         salaCeleste.agregarAlumno(alumno1);
