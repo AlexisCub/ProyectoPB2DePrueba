@@ -22,7 +22,7 @@ public class Docente extends Persona {
         return gradoExperiencia;
     }
 
-    private boolean puedeCorregir(Alumno alumno) {
+    public boolean puedeCorregir(Alumno alumno) {
         int gradoAlumno = alumno.getGradoAsignado();
         for (int i = 0; i < gradoExperiencia.length; i++) {
             if (gradoExperiencia[i] == gradoAlumno) {

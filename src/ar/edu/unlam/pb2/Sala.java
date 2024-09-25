@@ -67,7 +67,7 @@ public class Sala {
                 System.out.println("Capacidad máxima de materias alcanzada");
             }
         } else {
-            System.out.println("Esta funcionalidad solo está disponible para niveles de secundaria");
+            System.out.println("Solo docentes secundaria");
         }
     }
 
@@ -82,4 +82,16 @@ public class Sala {
     public String getNombre() {
         return nombre;
     }
-}
+    
+    public ArrayList<Docente> getDocentes() {
+        return docentes;
+    }
+
+    public ArrayList<Docente> getDocentesSecundaria() {
+        return docentesSecundaria;
+    }
+
+    public ArrayList<String> getMaterias() {
+        return materias;
+    }
+} 

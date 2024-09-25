@@ -51,7 +51,7 @@ public class Alumno extends Persona {
             }
         }
     }
-
+ 
     
     public int getEdad() {
         return edad;
@@ -88,4 +88,14 @@ public class Alumno extends Persona {
             System.out.println("Materia: " + eval.getMateria() + " // Nota: " + eval.getNota());
         }
     }
+    
+    public ArrayList<Evaluacion> getEvaluaciones() {
+        return evaluaciones;
+    }
+    
+    public ArrayList<Asistencia> getAsistencias() {
+        return asistencias;
+    }
 }
+
+

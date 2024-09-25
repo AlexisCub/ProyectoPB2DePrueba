@@ -14,6 +14,6 @@ public class Evaluacion {
     }
 
     public int getNota() {
-        return nota;
+        return nota; 
     }
 }

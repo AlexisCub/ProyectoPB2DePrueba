@@ -78,20 +78,23 @@ public class InterfaceInstituto {
         
         
         //---- Primaria----
+        
         //---Aulas primaria----
         Sala primerGrado = new Sala("Pimer Grado", 1);
         Sala segundoGrado = new Sala("Segundo Grado", 2);
-        Sala tercerGrado = new Sala("Tercer Grado", 3);
+        Sala tercerGrado = new Sala("Tercer Grado", 3); 
         Sala cuartoGrado = new Sala("Cuarto Grado", 4);
         Sala quintoGrado = new Sala("Quinto Grado", 5);
         Sala sextoGrado = new Sala("Sexto Grado", 6);
         
-        //---Cargar Docente primaria---
+        //---Crear Docente primaria---
+        Docente docentePrimerGrado = new Docente("María", 40642178, new int[]{1});
         Docente docenteSegundoGrado = new Docente("Luis", 40642179, new int[]{2, 3, 6});
         Docente docenteTercerGrado = new Docente("Gabriel", 40642180, new int[]{3, 4});
-
-
-
+        Docente docenteCuartoGrado = new Docente("Carlos", 40642181, new int[]{4, 5});
+        Docente docenteQuintoGrado = new Docente("Beatriz", 40642182, new int[]{5, 6});
+        Docente docenteSextoGrado = new Docente("David", 40642183, new int[]{6});
+        
 
         //---Crear Alumnos Primaria
         Alumno pedroPrim = new Alumno("Pedro", 7, 40642171); 
@@ -134,6 +137,14 @@ public class InterfaceInstituto {
         quintoGrado.mostrarAlumnos();
         sextoGrado.mostrarAlumnos();
         
+        //---Agregar Docente a cada Grado
+        primerGrado.agregarDocente(docentePrimerGrado);
+        segundoGrado.agregarDocente(docenteSegundoGrado);
+        tercerGrado.agregarDocente(docenteTercerGrado);
+        cuartoGrado.agregarDocente(docenteCuartoGrado);
+        quintoGrado.agregarDocente(docenteQuintoGrado);
+        sextoGrado.agregarDocente(docenteSextoGrado);
+        
         // Asistencia primaria
         pedroPrim.registrarAsistencia(LocalDate.of(2024, 9, 2), true);
         juliaPrim.registrarAsistencia(LocalDate.of(2024, 9, 2), true);
@@ -149,9 +160,7 @@ public class InterfaceInstituto {
         juliaPrim.mostrarNota();
         pedroPrim.mostrarNota();
         
-        
-        
-        
+
         
       //---- Secundaria----
         
