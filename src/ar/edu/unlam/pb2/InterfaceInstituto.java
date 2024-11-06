@@ -11,24 +11,42 @@ public class InterfaceInstituto {
         Sala salaRoja = new Sala("Sala Roja", 0);
         
         //---- Jardin ----
-        Alumno alumno1 = new Alumno("Juan", 2, 12345678);
-        Alumno alumno2 = new Alumno("Juancho", 4, 23456789);
-        Alumno alumno3 = new Alumno("Ana", 3, 34567890);
-        Alumno alumno4 = new Alumno("Luis", 4, 45678901);
-        Alumno alumno5 = new Alumno("Marta", 3, 56789012);
+        Alumno alumno1 = new Alumno("Juan", "Soto", 2, 12345678);
+        Alumno alumno2 = new Alumno("Juancho", "Pérez", 4, 23456789);
+        Alumno alumno3 = new Alumno("Ana", "Gómez", 3, 34567890);
+        Alumno alumno4 = new Alumno("Luis", "Ramírez", 4, 45678901);
+        Alumno alumno5 = new Alumno("Marta", "López", 3, 56789012);
         
         // Asignar alumnos a las salas segun el color
+        
+        try {
         salaCeleste.agregarAlumno(alumno1);
         salaAzul.agregarAlumno(alumno2);
         salaVerde.agregarAlumno(alumno3);
         salaAzul.agregarAlumno(alumno4);
         salaRoja.agregarAlumno(alumno5);
+        }catch(Exception e) {
+        	
+        System.out.println("Error al agregar alumnos a las salas: " + e.getMessage());
+        	
+        }
         
         System.out.println(alumno1.getNombre() + " esta asignado a la sala " + alumno1.getColorSala());
         System.out.println(alumno2.getNombre() + " esta asignado a la sala " + alumno2.getColorSala());
         System.out.println(alumno3.getNombre() + " esta asignada a la sala " + alumno3.getColorSala());
         System.out.println(alumno4.getNombre() + " esta asignado a la sala " + alumno4.getColorSala());
         System.out.println(alumno5.getNombre() + " esta asignada a la sala " + alumno5.getColorSala());
+        
+        salaCeleste.listaAlumnosOrdenados();
+        salaVerde.listaAlumnosOrdenados();
+        salaAzul.listaAlumnosOrdenados();
+        salaRoja.listaAlumnosOrdenados();
+        
+        salaCeleste.listaAlumnosPorDNI();
+        salaVerde.listaAlumnosPorDNI();
+        salaAzul.listaAlumnosPorDNI();
+        salaRoja.listaAlumnosPorDNI();
+        
         
         // Crear docentes de Jardin
         Docente docente1 = new Docente("Andrea", 40642171, new int[]{0});
@@ -43,14 +61,24 @@ public class InterfaceInstituto {
 
         
         // Asignar docentes a las salas
-        salaCeleste.agregarDocente(docente1);
-        salaCeleste.agregarDocente(docente2);
-        salaVerde.agregarDocente(docente3);
-        salaVerde.agregarDocente(docente4);
-        salaAzul.agregarDocente(docente5);
-        salaAzul.agregarDocente(docente6);
-        salaRoja.agregarDocente(docente7);
-        salaRoja.agregarDocente(docente8);
+        
+        try {
+        	
+            salaCeleste.agregarDocente(docente1);
+            salaCeleste.agregarDocente(docente2);
+            salaVerde.agregarDocente(docente3);
+            salaVerde.agregarDocente(docente4);
+            salaAzul.agregarDocente(docente5);
+            salaAzul.agregarDocente(docente6);
+            salaRoja.agregarDocente(docente7);
+            salaRoja.agregarDocente(docente8);
+
+            
+        } 
+        catch (CantidadMaximaDocentesException e) {
+        	
+            System.out.println(e.getMessage());
+        }
         
         System.out.println("\nMostrar lista de alumnos de jardin:");
         salaCeleste.mostrarAlumnos();
@@ -97,25 +125,38 @@ public class InterfaceInstituto {
         
 
         //---Crear Alumnos Primaria
-        Alumno pedroPrim = new Alumno("Pedro", 7, 40642171); 
-        Alumno juliaPrim = new Alumno("Julia", 8, 40642172); 
-        Alumno carlosPrim = new Alumno("Carlos", 9, 40642173); 
-        Alumno sofiaPrim = new Alumno("Sofia", 10, 40642174); 
-        Alumno lucasPrim = new Alumno("Lucas", 11, 40642175); 
-        Alumno martaPrim = new Alumno("Marta", 11, 40642176); 
-        Alumno juanPrim = new Alumno("Juan", 6, 40642177); 
-        Alumno claudiaPrim = new Alumno("Claudia", 9, 40642178); 
-        Alumno rafaelPrim = new Alumno("Rafael", 10, 40642179); 
-        Alumno paulaPrim = new Alumno("Paula", 11, 40642180);
+        Alumno pedroPrim = new Alumno("Pedro", "García", 7, 40642171); 
+        Alumno juliaPrim = new Alumno("Julia", "Cruz", 8, 40642172); 
+        Alumno carlosPrim = new Alumno("Carlos", "Reyes", 9, 40642173); 
+        Alumno sofiaPrim = new Alumno("Sofia", "Hernández", 10, 40642174); 
+        Alumno lucasPrim = new Alumno("Lucas", "Jiménez", 11, 40642175); 
+        Alumno martaPrim = new Alumno("Marta", "Moreno", 11, 40642176); 
+        Alumno juanPrim = new Alumno("Juan", "Díaz", 6, 40642177); 
+        Alumno claudiaPrim = new Alumno("Claudia", "Ponce", 9, 40642178); 
+        Alumno rafaelPrim = new Alumno("Rafael", "Salazar", 10, 40642179); 
+        Alumno paulaPrim = new Alumno("Paula", "Vega", 11, 40642180);
+        
+        
+
 
         //---Cargar Alumnos Primaria
-        primerGrado.agregarAlumno(pedroPrim);
-        segundoGrado.agregarAlumno(juliaPrim);
-        tercerGrado.agregarAlumno(carlosPrim);
-        cuartoGrado.agregarAlumno(sofiaPrim);
-        sextoGrado.agregarAlumno(lucasPrim);
-        sextoGrado.agregarAlumno(martaPrim);
-        sextoGrado.agregarAlumno(rafaelPrim);
+        
+        try {
+            segundoGrado.agregarAlumno(pedroPrim);
+            tercerGrado.agregarAlumno(juliaPrim);
+            tercerGrado.agregarAlumno(carlosPrim);
+            cuartoGrado.agregarAlumno(sofiaPrim);
+            primerGrado.agregarAlumno(juanPrim);
+            sextoGrado.agregarAlumno(lucasPrim);
+            sextoGrado.agregarAlumno(martaPrim);
+            sextoGrado.agregarAlumno(rafaelPrim);
+        }catch(Exception e) {
+        	
+        System.out.println("Error al agregar alumnos a las salas: " + e.getMessage());
+        	
+        }
+        
+
         
         System.out.println("\nGrado asignado a los alumnos de primaria:");
         System.out.println(pedroPrim.getNombre() + ": Grado " + pedroPrim.getGradoAsignado());
@@ -130,6 +171,7 @@ public class InterfaceInstituto {
         System.out.println(paulaPrim.getNombre() + ": Grado " + paulaPrim.getGradoAsignado());
         
         System.out.println("\nLista de alumnos por grado:");
+        
         primerGrado.mostrarAlumnos();
         segundoGrado.mostrarAlumnos();
         tercerGrado.mostrarAlumnos();
@@ -137,13 +179,38 @@ public class InterfaceInstituto {
         quintoGrado.mostrarAlumnos();
         sextoGrado.mostrarAlumnos();
         
+        primerGrado.listaAlumnosOrdenados();
+        segundoGrado.listaAlumnosOrdenados();
+        tercerGrado.listaAlumnosOrdenados();
+        cuartoGrado.listaAlumnosOrdenados();
+        quintoGrado.listaAlumnosOrdenados();
+        sextoGrado.listaAlumnosOrdenados();
+        
+        primerGrado.listaAlumnosPorDNI();
+        segundoGrado.listaAlumnosPorDNI();
+        tercerGrado.listaAlumnosPorDNI();
+        cuartoGrado.listaAlumnosPorDNI();
+        quintoGrado.listaAlumnosPorDNI();
+        sextoGrado.listaAlumnosPorDNI();
+        
         //---Agregar Docente a cada Grado
-        primerGrado.agregarDocente(docentePrimerGrado);
-        segundoGrado.agregarDocente(docenteSegundoGrado);
-        tercerGrado.agregarDocente(docenteTercerGrado);
-        cuartoGrado.agregarDocente(docenteCuartoGrado);
-        quintoGrado.agregarDocente(docenteQuintoGrado);
-        sextoGrado.agregarDocente(docenteSextoGrado);
+        
+        try {
+        	
+            primerGrado.agregarDocente(docentePrimerGrado);
+            segundoGrado.agregarDocente(docenteSegundoGrado);
+            tercerGrado.agregarDocente(docenteTercerGrado);
+            cuartoGrado.agregarDocente(docenteCuartoGrado);
+            quintoGrado.agregarDocente(docenteQuintoGrado);
+            sextoGrado.agregarDocente(docenteSextoGrado);
+            
+        } 
+        catch (CantidadMaximaDocentesException e) {
+        	
+            System.out.println(e.getMessage());
+        }
+        
+
         
         // Asistencia primaria
         pedroPrim.registrarAsistencia(LocalDate.of(2024, 9, 2), true);
@@ -152,10 +219,10 @@ public class InterfaceInstituto {
         juliaPrim.mostrarAsistencia();
         
         // Notas primaria
-        docenteSegundoGrado.corregirEvaluacion(pedroPrim, "Matematicas", 8);
-        docenteTercerGrado.corregirEvaluacion(juliaPrim, "Plastica", 9);
-        docenteSegundoGrado.corregirEvaluacion(pedroPrim, "Lengua", 7);
-        docenteTercerGrado.corregirEvaluacion(juliaPrim, "Ingles", 9);
+        docenteSegundoGrado.corregirEvaluacion(pedroPrim, "Matematicas", 8, LocalDate.of(2024, 10, 15));
+        docenteTercerGrado.corregirEvaluacion(juliaPrim, "Plastica", 9, LocalDate.of(2024, 10, 16));
+        docenteSegundoGrado.corregirEvaluacion(pedroPrim, "Lengua", 7, LocalDate.of(2024, 10, 17));
+        docenteTercerGrado.corregirEvaluacion(juliaPrim, "Ingles", 9, LocalDate.of(2024, 10, 18));
         
         juliaPrim.mostrarNota();
         pedroPrim.mostrarNota();
@@ -195,49 +262,66 @@ public class InterfaceInstituto {
         Docente docenteSextoAñoCienciasSociales = new Docente("Natalia", 40642194, new int[]{6});
 
         //---Agregar Docentre a cada año
-        primerAño.agregarDocente(docentePrimerAñoMatematicas);
-        primerAño.agregarDocente(docentePrimerAñoLengua);
-        primerAño.agregarDocente(docentePrimerAñoCiencias);
         
-        segundoAño.agregarDocente(docenteSegundoAñoMatematicas);
-        segundoAño.agregarDocente(docenteSegundoAñoHistoria);
-        segundoAño.agregarDocente(docenteSegundoAñoLengua);
+ 
+            primerAño.agregarDocenteSecundaria(docentePrimerAñoMatematicas);
+            primerAño.agregarDocenteSecundaria(docentePrimerAñoLengua);
+            primerAño.agregarDocenteSecundaria(docentePrimerAñoCiencias);
+            
+            segundoAño.agregarDocenteSecundaria(docenteSegundoAñoMatematicas);
+            segundoAño.agregarDocenteSecundaria(docenteSegundoAñoHistoria);
+            segundoAño.agregarDocenteSecundaria(docenteSegundoAñoLengua);
 
-        tercerAño.agregarDocente(docenteTercerAñoMatematicas);
-        tercerAño.agregarDocente(docenteTercerAñoHistoria);
-        tercerAño.agregarDocente(docenteTercerAñoBiologia);
+            tercerAño.agregarDocenteSecundaria(docenteTercerAñoMatematicas);
+            tercerAño.agregarDocenteSecundaria(docenteTercerAñoHistoria);
+            tercerAño.agregarDocenteSecundaria(docenteTercerAñoBiologia);
 
-        cuartoAño.agregarDocente(docenteCuartoAñoMatematicas);
-        cuartoAño.agregarDocente(docenteCuartoAñoQuimica);
+            cuartoAño.agregarDocenteSecundaria(docenteCuartoAñoMatematicas);
+            cuartoAño.agregarDocenteSecundaria(docenteCuartoAñoQuimica);
+            
+            quintoAño.agregarDocenteSecundaria(docenteQuintoAñoMatematicas);
+            quintoAño.agregarDocenteSecundaria(docenteQuintoAñoHistoria);
+            
+            sextoAño.agregarDocenteSecundaria(docenteSextoAñoLengua);
+            sextoAño.agregarDocenteSecundaria(docenteSextoAñoCienciasSociales);
+            
         
-        quintoAño.agregarDocente(docenteQuintoAñoMatematicas);
-        quintoAño.agregarDocente(docenteQuintoAñoHistoria);
+
         
-        sextoAño.agregarDocente(docenteSextoAñoLengua);
-        sextoAño.agregarDocente(docenteSextoAñoCienciasSociales);
+        
         //---Crear Alumno Secundaria 
-        Alumno andresSecu = new Alumno("Andrés", 12, 40642181);
-        Alumno beatrizSecu = new Alumno("Beatriz", 13, 40642182);
-        Alumno carlosSecu = new Alumno("Carlos", 14, 40642183);
-        Alumno dianaSecu = new Alumno("Diana", 15, 40642184);
-        Alumno elenaSecu = new Alumno("Elena", 16, 40642185);
-        Alumno fernandoSecu = new Alumno("Fernando", 17, 40642186);
-        Alumno gustavoSecu = new Alumno("Gustavo", 17, 40642187);
-        Alumno helenaSecu = new Alumno("Helena", 13, 40642188);
-        Alumno ignacioSecu = new Alumno("Ignacio", 16, 40642189);
-        Alumno jessicaSecu = new Alumno("Jessica", 15, 40642190);
+        
+        Alumno andresSecu = new Alumno("Andrés", "Gómez", 12, 40642181);
+        Alumno beatrizSecu = new Alumno("Beatriz", "Pérez", 13, 40642182);
+        Alumno carlosSecu = new Alumno("Carlos", "López", 14, 40642183);
+        Alumno dianaSecu = new Alumno("Diana", "Martínez", 15, 40642184);
+        Alumno elenaSecu = new Alumno("Elena", "Fernández", 16, 40642185);
+        Alumno fernandoSecu = new Alumno("Fernando", "Sánchez", 17, 40642186);
+        Alumno gustavoSecu = new Alumno("Gustavo", "Ramírez", 17, 40642187);
+        Alumno helenaSecu = new Alumno("Helena", "Torres", 13, 40642188);
+        Alumno ignacioSecu = new Alumno("Ignacio", "Vázquez", 16, 40642189);
+        Alumno jessicaSecu = new Alumno("Jessica", "Morales", 15, 40642190);
+
 
         //---Agregar Alumno Secundaria
-        primerAño.agregarAlumno(andresSecu);
-        segundoAño.agregarAlumno(beatrizSecu);
-        tercerAño.agregarAlumno(carlosSecu);
-        cuartoAño.agregarAlumno(dianaSecu);
-        quintoAño.agregarAlumno(elenaSecu);
-        sextoAño.agregarAlumno(fernandoSecu);
-        sextoAño.agregarAlumno(gustavoSecu);
-        segundoAño.agregarAlumno(helenaSecu);
-        quintoAño.agregarAlumno(ignacioSecu);
-        cuartoAño.agregarAlumno(jessicaSecu);
+        
+        try {
+            primerAño.agregarAlumno(andresSecu);
+            segundoAño.agregarAlumno(beatrizSecu);
+            tercerAño.agregarAlumno(carlosSecu);
+            cuartoAño.agregarAlumno(dianaSecu);
+            quintoAño.agregarAlumno(elenaSecu);
+            sextoAño.agregarAlumno(fernandoSecu);
+            sextoAño.agregarAlumno(gustavoSecu);
+            segundoAño.agregarAlumno(helenaSecu);
+            quintoAño.agregarAlumno(ignacioSecu);
+            cuartoAño.agregarAlumno(jessicaSecu);
+        }catch(Exception e) {
+        	
+        System.out.println("Error al agregar alumnos a las salas: " + e.getMessage());
+        	
+        }
+        
         
         System.out.println("\nAño asignado a los alumnos de secundaria:");
         System.out.println(andresSecu.getNombre() + ": Año " + andresSecu.getGradoAsignado());
@@ -259,6 +343,20 @@ public class InterfaceInstituto {
         quintoAño.mostrarAlumnos();
         sextoAño.mostrarAlumnos();
         
+        primerAño.listaAlumnosOrdenados();
+        segundoAño.listaAlumnosOrdenados();
+        tercerAño.listaAlumnosOrdenados();
+        cuartoAño.listaAlumnosOrdenados();
+        quintoAño.listaAlumnosOrdenados();
+        sextoAño.listaAlumnosOrdenados();
+        
+        primerAño.listaAlumnosPorDNI();
+        segundoAño.listaAlumnosPorDNI();
+        tercerAño.listaAlumnosPorDNI();
+        cuartoAño.listaAlumnosPorDNI();
+        quintoAño.listaAlumnosPorDNI();
+        sextoAño.listaAlumnosPorDNI();
+        
         //Asistencia secundaria
         andresSecu.registrarAsistencia(LocalDate.of(2024, 9, 2), true);
         beatrizSecu.registrarAsistencia(LocalDate.of(2024, 9, 2), false);
@@ -270,6 +368,7 @@ public class InterfaceInstituto {
         helenaSecu.registrarAsistencia(LocalDate.of(2024, 9, 2), false);
         ignacioSecu.registrarAsistencia(LocalDate.of(2024, 9, 2), true);
         jessicaSecu.registrarAsistencia(LocalDate.of(2024, 9, 2), false);
+        andresSecu.registrarAsistencia(LocalDate.of(2024, 9, 2), false);
 
         // Mostrar asistencia secundaria
         andresSecu.mostrarAsistencia();
@@ -284,21 +383,38 @@ public class InterfaceInstituto {
         jessicaSecu.mostrarAsistencia();
 
         // Notas secundaria
-        docenteSegundoAñoMatematicas.corregirEvaluacion(beatrizSecu, "Matematicas", 8); 
-        docenteTercerAñoBiologia.corregirEvaluacion(gustavoSecu, "Biologia", 9); 
-        docenteSegundoAñoLengua.corregirEvaluacion(jessicaSecu, "Lengua", 7); 
-        docenteTercerAñoHistoria.corregirEvaluacion(jessicaSecu, "Historia", 9);
-        docentePrimerAñoMatematicas.corregirEvaluacion(andresSecu, "Matematicas", 10);
-        docenteSegundoAñoHistoria.corregirEvaluacion(carlosSecu, "Historia", 6);
-        docenteTercerAñoMatematicas.corregirEvaluacion(dianaSecu, "Matematicas", 7);
-        docenteQuintoAñoHistoria.corregirEvaluacion(elenaSecu, "Historia", 8);
-        docenteSextoAñoLengua.corregirEvaluacion(fernandoSecu, "Lengua", 9);
-        docenteCuartoAñoQuimica.corregirEvaluacion(helenaSecu, "Química", 7);
-        docenteQuintoAñoMatematicas.corregirEvaluacion(ignacioSecu, "Matematicas", 6);
+        docenteSegundoAñoMatematicas.corregirEvaluacion(beatrizSecu, "Matematica", 8, LocalDate.of(2024, 10, 15));
+        docenteTercerAñoBiologia.corregirEvaluacion(gustavoSecu, "Biologia", 9, LocalDate.of(2024, 10, 16));
+        docenteSegundoAñoLengua.corregirEvaluacion(jessicaSecu, "Lengua", 7, LocalDate.of(2024, 10, 17));
+        docenteTercerAñoHistoria.corregirEvaluacion(jessicaSecu, "Historia", 9, LocalDate.of(2024, 10, 18));
+        docentePrimerAñoMatematicas.corregirEvaluacion(andresSecu, "Matematica", 10, LocalDate.of(2024, 10, 19));
+        docenteSegundoAñoHistoria.corregirEvaluacion(carlosSecu, "Historia", 6, LocalDate.of(2024, 10, 20));
+        docenteTercerAñoMatematicas.corregirEvaluacion(dianaSecu, "Matematica", 7, LocalDate.of(2024, 10, 21));
+        docenteQuintoAñoHistoria.corregirEvaluacion(elenaSecu, "Historia", 8, LocalDate.of(2024, 10, 22));
+        docenteSextoAñoLengua.corregirEvaluacion(fernandoSecu, "Lengua", 9, LocalDate.of(2024, 10, 23));
+        docenteCuartoAñoQuimica.corregirEvaluacion(helenaSecu, "Química", 7, LocalDate.of(2024, 10, 24));
+        docenteQuintoAñoMatematicas.corregirEvaluacion(ignacioSecu, "Matematica", 6, LocalDate.of(2024, 10, 25));
+
         
         beatrizSecu.mostrarNota();
         jessicaSecu.mostrarNota();
         gustavoSecu.mostrarNota();
+        
+        //BUSCAR ALUMNO POR DNI
+        
+        int dniBuscado = 40642172;
+        
+        
+        try {
+            Alumno alumnoEncontrado = segundoGrado.buscarAlumnoPorDNI(dniBuscado);
+            
+            System.out.println("Alumno encontrado: " + alumnoEncontrado.getApellido() + " " + alumnoEncontrado.getNombre() + " - DNI: " + alumnoEncontrado.getDni());
+            
+        } catch (AlumnoNoEncontradoException e) {
+        	
+            System.out.println(e.getMessage());
+        }
+        
 
     }
 
@@ -310,5 +426,8 @@ public class InterfaceInstituto {
             }
         }
     }
+    
+    
+    
 }
 

@@ -5,14 +5,16 @@ import java.util.ArrayList;
 
 public class Alumno extends Persona { 
     private int edad;
+    private String apellido;
     private String colorSala;
     private ArrayList<Asistencia> asistencias; 
     private ArrayList<Evaluacion> evaluaciones; 
     private int gradoAsignado;
 
     
-    public Alumno(String nombre, int edad, Integer dni) {
+    public Alumno(String nombre, String apellido, int edad, Integer dni) {
         super(nombre, dni); 
+        this.apellido = apellido;
         this.edad = edad;
         this.colorSala = asignarColorSala(edad);
         asistencias = new ArrayList<Asistencia>(); 
@@ -52,6 +54,9 @@ public class Alumno extends Persona {
         }
     }
  
+    public String getApellido() {
+        return apellido;
+    }
     
     public int getEdad() {
         return edad;
@@ -64,15 +69,31 @@ public class Alumno extends Persona {
     public int getGradoAsignado() {
         return gradoAsignado;
     }
-
     
     public void registrarAsistencia(LocalDate fecha, boolean asistio) {
+        
+        for (int i = 0; i < asistencias.size(); i++) {
+        	
+            if (asistencias.get(i).getFecha().equals(fecha)) {
+            	
+                System.out.println("Asistencia de "+getNombre()+ " "+getApellido()+ " ya registrada en la fecha: " + fecha);
+                
+                return;
+            }
+        }
+        
+        
+        
+        
         asistencias.add(new Asistencia(fecha, asistio));
+        
+        System.out.println("Asistencia de "+getNombre()+" "+getApellido()+ " se regristro correctamente en la fecha: " + fecha);
     }
 
     public void mostrarAsistencia() {
         System.out.println("\nAsistencias de " + getNombre() + ":");
-        for (Asistencia asistencia : asistencias) { 
+        for (int i = 0; i < asistencias.size(); i++) {
+            Asistencia asistencia = asistencias.get(i);
             System.out.println("Fecha: " + asistencia.getFecha() + " - Asistio: " + (asistencia.getAsistio() ? "Si" : "No"));
         }
     }
@@ -85,7 +106,7 @@ public class Alumno extends Persona {
     public void mostrarNota() {
         System.out.println("\nEvaluaciones de " + getNombre() + ":");
         for (Evaluacion eval : evaluaciones) { 
-            System.out.println("Materia: " + eval.getMateria() + " // Nota: " + eval.getNota());
+            System.out.println("Curso: " + eval.getCurso() + " - Nota: " + eval.getNota() + " - Fecha: " + eval.getFecha());
         }
     }
     
